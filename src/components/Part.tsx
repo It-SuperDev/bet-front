@@ -15,7 +15,7 @@ import "swiper/css/pagination";
 
 export const Slider = () => {
   return (
-    <BoxBorder>
+    <BoxBorder sx={{ height: '100%' }}>
       <Swiper
         navigation={true}
         pagination={{
@@ -38,7 +38,7 @@ export const Slider = () => {
 }
 
 export const PageList = () => {
-  const list = ['Home', 'Live', 'Bet List'];
+  const list: string[] = ['Home', 'Live', 'Bet List'];
   return (
     <BoxBorder>
       <Typography
