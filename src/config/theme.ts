@@ -1,0 +1,145 @@
+import { ThemeOptions } from '@mui/material';
+
+const overrides = {
+    MuiAvatar: {
+        // styleOverrides: {
+        //     root: {
+        //         borderRadius: 6
+        //     }
+        // }
+    },
+    MuiIconButton: {
+        // styleOverrides: {
+        //     root: {
+        //         borderRadius: 6,
+        //         '&:hover': {
+        //             boxShadow: 'unset',
+        //             backgroundColor: 'transparent'
+        //         }
+        //     }
+        // }
+    },
+    MuiMenuItem: {
+        // styleOverrides: {
+        //     root: {
+        //         '&.Mui-selected': {
+        //             backgroundColor: '#4584ff'
+        //         },
+        //         '&:hover': {
+        //             backgroundColor: '#54aeff52'
+        //         }
+        //     }
+        // }
+    },
+    MuiListItemButton: {
+        // styleOverrides: {
+        //     root: {
+        //         borderRadius: 0,
+        //         '&:hover': {
+        //             backgroundColor: '#54aeff52'
+        //         }
+        //     }
+        // }
+    },
+    MuiButtonBase: {
+        // defaultProps: {
+        //     disableRipple: true
+        // },
+        // styleOverrides: {
+        //     root: {
+        //         '&:hover': {
+        //             boxShadow: 'unset'
+        //         }
+        //     }
+        // }
+    },
+    MuiButton: {
+        // styleOverrides: {
+        //     root: {
+        //         boxShadow: 'unset',
+        //         '&:hover': {
+        //             boxShadow: 'unset',
+        //             backgroundColor: '#286EF6'
+        //         }
+        //     }
+        // }
+    }
+};
+
+export const One: ThemeOptions = {
+    palette: {
+        mode: 'dark',
+        primary: {
+            // main: '#cf2424',
+            main: '#6a6b70'
+            // light: '#212121' //customColor
+        },
+        // success: {
+        //     main: '#2e7d32',
+        //     light: '#F5F5F5', // receive
+        //     dark: '#000000' //originColor
+        // },
+        // secondary: {
+        //     main: '#313cad',
+        //     light: '#ffffff', //inputColor
+        //     dark: '#ffffff' //imgColor
+        // },
+        // info: {
+        //     main: '#0288d1',
+        //     light: '#000000', //inputBorder
+        //     dark: '#00000078' //effectColor
+        // },
+        background: {
+            paper: '#21242a',
+            default: '#30343c'
+        },
+        // text: {
+        //     primary: '#212121'
+        // }
+    },
+    typography: {
+        // fontFamily: 'Helvetica Neue Light',
+        fontSize: 14,
+    },
+    shape: {
+        borderRadius: 4
+    },
+    components: overrides
+};
+
+export const Two: ThemeOptions = {
+    palette: {
+        mode: 'dark',
+        primary: {
+            main: '#286EF6',
+            light: '#ffffff' //customColor
+        },
+        secondary: {
+            main: '#313cad',
+            light: '#282828', //inputColor
+            dark: '#000000' //imgColor
+        },
+        info: {
+            main: '#0288d1',
+            light: '#282828', //inputBorder
+            dark: '#ffffff94' //effectColor
+        },
+        success: {
+            main: '#2e7d32',
+            light: '#282828',
+            dark: '#ffffff' //originColor
+        },
+        background: {
+            paper: '#171717',
+            default: '#121212'
+        }
+    },
+    typography: {
+        fontFamily: 'Helvetica Neue Light',
+        fontSize: 14
+    },
+    shape: {
+        borderRadius: 4
+    },
+    components: overrides
+};
