@@ -1,18 +1,15 @@
-import Box from '@mui/material/Box';
-// import AppBg from 'components/AppBg';
-
+import Container from '@mui/material/Container';
+import { LayoutWrap } from '../components/Base';
+import { BodyHead } from '../components/Part';
 import { Outlet } from 'react-router-dom';
 
 const Wrapper = () => (
-    <Box
-        sx={{
-            minHeight: 'calc(100vh - 68px - 48px)',
-            padding: (theme) => theme.spacing(4, 0)
-        }}
-    >
-        <Outlet />
-        {/* <AppBg /> */}
-    </Box>
+    <LayoutWrap>
+        <Container maxWidth='lg'>
+            <BodyHead />
+            <Outlet />
+        </Container>
+    </LayoutWrap>
 );
 
 export default Wrapper;

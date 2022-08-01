@@ -18,7 +18,6 @@ import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import { StyledBadge } from './Base';
-// import sHeader from '../style/header'
 
 const settings = ['Change Password', 'Transaction', 'Login History', 'Logout'];
 const lang = ['en', 'de'];

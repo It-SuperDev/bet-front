@@ -32,6 +32,17 @@ export const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 export const BoxBorder = styled(Box)(({ theme }) => ({
-  boxShadow: `0 0 0 4px ${theme.palette.primary.main}`,
+  borderWidth: theme.spacing(0.4),
+  borderStyle: 'solid',
+  borderColor: theme.palette.primary.main
+}))
 
+export const LayoutWrap = styled(Box)(({ theme }) => ({
+  minHeight: 'calc(100vh - 68px - 48px)',
+  padding: theme.spacing(4, 0),
+  backgroundImage: `url(${require('../assets/img/background/1.jpg')})`,
+  backgroundAttachment: 'fixed',
+  backgroundPosition: 'top',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover'
 }))
