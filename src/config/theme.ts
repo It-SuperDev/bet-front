@@ -72,13 +72,18 @@ export const One: ThemeOptions = {
         primary: {
             // main: '#cf2424',
             main: '#6a6b70'
-            // light: '#212121' //customColor
+            // light: '#212121'
         },
-        // success: {
-        //     main: '#2e7d32',
-        //     light: '#F5F5F5', // receive
-        //     dark: '#000000' //originColor
-        // },
+        success: {
+            main: '#46bf00',
+            light: '#6dd92e',
+            dark: '#337c09'
+        },
+        error : {
+            light: '#ff4343',
+            main: '#ff2c16',
+            dark: '#c91300',
+        },
         // secondary: {
         //     main: '#313cad',
         //     light: '#ffffff', //inputColor

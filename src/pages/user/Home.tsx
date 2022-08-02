@@ -1,11 +1,12 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
+import { BoxBorder } from 'components/Base';
+import { SportHead, SportBody } from '../../components/Part';
 
 const Home = () => {
     return (
-        <Box>
-            Home
-        </Box>);
+        <BoxBorder sx={{ mt: 2 }}>
+            <SportHead />
+            <SportBody />
+        </BoxBorder>);
 };
 
 export default Home;

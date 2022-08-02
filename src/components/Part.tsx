@@ -1,10 +1,14 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
+import Stack from '@mui/material/Stack';
 import ListItem from '@mui/material/ListItem';
 import Typography from '@mui/material/Typography';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
+
+import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from 'swiper'
 import { BoxBorder } from './Base'
@@ -83,6 +87,61 @@ export const BodyHead = () => {
       <Grid item md={3}>
         <PageList />
       </Grid>
+    </Grid>
+  )
+}
+
+export const SportHead = () => {
+  return (
+    <Box sx={{ bgcolor: (theme) => theme.palette.background.paper }}>
+      <Stack direction='row' alignItems='center' justifyContent='space-between' p={2} >
+        <Stack direction='row' alignItems='center' >
+          <SportsSoccerIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
+          <Typography
+            variant="h5"
+            noWrap
+            component="h5"
+            ml={1}
+          >
+            Soccer
+          </Typography>
+        </Stack>
+        <Stack direction='row' alignItems='center' >
+          <Typography noWrap sx={{ pl: 1, cursor: 'pointer', color: (theme) => theme.palette.error.dark, [`&:hover`]: { color: (theme) => theme.palette.error.light } }}>
+            Favourite Events
+          </Typography>
+          {
+            ['01', '02', '03'].map((item, idx) => (
+              <Typography key={idx} noWrap sx={{ pl: 1, cursor: 'pointer', color: (theme) => theme.palette.success.main, [`&:hover`]: { color: (theme) => theme.palette.success.light } }}>
+                {`${item}/08`}
+              </Typography>
+            ))
+          }
+          <Typography noWrap sx={{ pl: 1, cursor: 'pointer', color: (theme) => theme.palette.success.light, [`&:hover`]: { color: (theme) => theme.palette.success.light } }}>
+            Today
+          </Typography>
+        </Stack>
+      </Stack>
+      <Typography noWrap sx={{ p: 0.5, cursor: 'pointer', textAlign: 'center', bgcolor: (theme) => theme.palette.error.main }}>
+        Outright(40)
+      </Typography>
+    </Box>
+  )
+}
+
+export const SportBody = () => {
+  return (
+    <Grid container sx={{ bgcolor: '#21242ac9', padding: 1 }}>
+      {
+        [1,2,3,4,5,6,7,8,9,9,0].map((item, idx) => (
+          <Grid item md={4} key={idx} sx={{ display: 'flex', alignItems:'center', cursor: 'pointer', borderBottom: "1px solid #4a4d56", [`&:hover`]: { bgcolor: (theme) => theme.palette.background.paper, color: (theme) => theme.palette.error.light } }}>
+            <Box component="img" alt='slider' src={`https://images.50bet.net/images/flags/England.png`} sx={{ mx: 1 }} />
+            <Typography noWrap sx={{fontSize: (theme) => theme.spacing(1.6)}}>
+              England Premier
+            </Typography>
+          </Grid>
+        ))
+      }
     </Grid>
   )
 }

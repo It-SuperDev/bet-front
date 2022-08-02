@@ -2,7 +2,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import useLocalStorage from 'hooks/useLocalStorage';
 import { ThemeContext, initialState } from 'contexts/theme';
-import '../assets/css/index.css';
+import '../assets/css/index.scss';
 
 
 import { One, Two } from 'config/theme';

@@ -32,7 +32,7 @@ export const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 export const BoxBorder = styled(Box)(({ theme }) => ({
-  borderWidth: theme.spacing(0.4),
+  // borderWidth: theme.spacing(0.4),
   borderStyle: 'solid',
   borderColor: theme.palette.primary.main
 }))
