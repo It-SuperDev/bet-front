@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
@@ -9,13 +11,13 @@ import ListItemButton from '@mui/material/ListItemButton';
 
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper'
 import { BoxBorder } from './Base'
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export const Slider = () => {
   return (
@@ -28,28 +30,30 @@ export const Slider = () => {
         autoplay={true}
         loop={true}
         modules={[Navigation, Pagination, Autoplay]}
-        className="bet-swiper"
+        className='bet-swiper'
       >
-        <SwiperSlide><Box component="img" alt='slider' src={require('../assets/img/slider/1.jpg')} /></SwiperSlide>
-        <SwiperSlide><Box component="img" alt='slider' src={require('../assets/img/slider/2.jpg')} /></SwiperSlide>
-        <SwiperSlide><Box component="img" alt='slider' src={require('../assets/img/slider/3.jpg')} /></SwiperSlide>
-        <SwiperSlide><Box component="img" alt='slider' src={require('../assets/img/slider/4.jpg')} /></SwiperSlide>
-        <SwiperSlide><Box component="img" alt='slider' src={require('../assets/img/slider/5.jpg')} /></SwiperSlide>
-        <SwiperSlide><Box component="img" alt='slider' src={require('../assets/img/slider/6.jpg')} /></SwiperSlide>
+        <SwiperSlide><Box component='img' alt='slider' src={require('../assets/img/slider/1.jpg')} /></SwiperSlide>
+        <SwiperSlide><Box component='img' alt='slider' src={require('../assets/img/slider/2.jpg')} /></SwiperSlide>
+        <SwiperSlide><Box component='img' alt='slider' src={require('../assets/img/slider/3.jpg')} /></SwiperSlide>
+        <SwiperSlide><Box component='img' alt='slider' src={require('../assets/img/slider/4.jpg')} /></SwiperSlide>
+        <SwiperSlide><Box component='img' alt='slider' src={require('../assets/img/slider/5.jpg')} /></SwiperSlide>
+        <SwiperSlide><Box component='img' alt='slider' src={require('../assets/img/slider/6.jpg')} /></SwiperSlide>
       </Swiper>
     </BoxBorder>
   );
 }
 
 export const PageList = () => {
-  const list: string[] = ['Home', 'Live', 'Bet List'];
+  const list: { name: string, url: string }[] = [{ name: 'Home', url: 'home' }, { name: 'Live', url: 'match' }, { name: 'Bet List', url: 'bet_list' }];
+  const navigate = useNavigate();
+
   return (
     <BoxBorder>
       <Typography
-        variant="h6"
+        variant='h6'
         noWrap
-        component="a"
-        href="/"
+        component='a'
+        href='/'
         sx={{
           display: 'flex',
           justifyContent: 'center',
@@ -57,7 +61,7 @@ export const PageList = () => {
         }}
       >
         <Box
-          component="img"
+          component='img'
           src={require('../assets/img/logo/logo.png')}
           alt='logo'
           sx={{ maxHeight: (theme) => theme.spacing(12) }}
@@ -65,10 +69,10 @@ export const PageList = () => {
       </Typography>
       <List sx={{ bgcolor: (theme) => theme.palette.background.default, padding: 0 }}>
         {
-          list.map((item, idx) => (
+          list.map((item: { name: string, url: string }, idx: number) => (
             <ListItem disablePadding key={idx}>
-              <ListItemButton sx={{ borderTopWidth: (theme) => theme.spacing(0.1), borderColor: (theme) => theme.palette.primary.main, borderStyle: 'solid' }}>
-                <ListItemText primary={item} sx={{ textAlign: 'center' }} />
+              <ListItemButton onClick={() => navigate(`${item.url}`)} sx={{ borderTopWidth: (theme) => theme.spacing(0.1), borderColor: (theme) => theme.palette.primary.main, borderStyle: 'solid' }}>
+                <ListItemText primary={item.name} sx={{ textAlign: 'center' }} />
               </ListItemButton>
             </ListItem>
           ))
@@ -98,9 +102,9 @@ export const SportHead = () => {
         <Stack direction='row' alignItems='center' >
           <SportsSoccerIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
           <Typography
-            variant="h5"
+            variant='h5'
             noWrap
-            component="h5"
+            component='h5'
             ml={1}
           >
             Soccer
@@ -133,10 +137,10 @@ export const SportBody = () => {
   return (
     <Grid container sx={{ bgcolor: '#21242ac9', padding: 1 }}>
       {
-        [1,2,3,4,5,6,7,8,9,9,0].map((item, idx) => (
-          <Grid item md={4} key={idx} sx={{ display: 'flex', alignItems:'center', cursor: 'pointer', borderBottom: "1px solid #4a4d56", [`&:hover`]: { bgcolor: (theme) => theme.palette.background.paper, color: (theme) => theme.palette.error.light } }}>
-            <Box component="img" alt='slider' src={`https://images.50bet.net/images/flags/England.png`} sx={{ mx: 1 }} />
-            <Typography noWrap sx={{fontSize: (theme) => theme.spacing(1.6)}}>
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 0].map((item, idx) => (
+          <Grid item md={4} key={idx} sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer', borderBottom: '1px solid #4a4d56', [`&:hover`]: { bgcolor: (theme) => theme.palette.background.paper, color: (theme) => theme.palette.error.light } }}>
+            <Box component='img' alt='slider' src={`https://images.50bet.net/images/flags/England.png`} sx={{ mx: 1 }} />
+            <Typography noWrap sx={{ fontSize: (theme) => theme.spacing(1.6) }}>
               England Premier
             </Typography>
           </Grid>
