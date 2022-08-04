@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
+import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
 import Stack from '@mui/material/Stack';
@@ -85,10 +86,10 @@ export const PageList = () => {
 export const BodyHead = () => {
   return (
     <Grid container justifyContent='space-between'>
-      <Grid item md={8.5}>
+      <Grid item md={8.5} sm={8.7}>
         <Slider />
       </Grid>
-      <Grid item md={3}>
+      <Grid item sm={3}>
         <PageList />
       </Grid>
     </Grid>
@@ -137,13 +138,15 @@ export const SportBody = () => {
   return (
     <Grid container sx={{ bgcolor: '#21242ac9', padding: 1 }}>
       {
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 0].map((item, idx) => (
-          <Grid item md={4} key={idx} sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer', borderBottom: '1px solid #4a4d56', [`&:hover`]: { bgcolor: (theme) => theme.palette.background.paper, color: (theme) => theme.palette.error.light } }}>
-            <Box component='img' alt='slider' src={`https://images.50bet.net/images/flags/England.png`} sx={{ mx: 1 }} />
-            <Typography noWrap sx={{ fontSize: (theme) => theme.spacing(1.6) }}>
-              England Premier
-            </Typography>
-          </Grid>
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29].map((idx: number) => (
+          <Grow in={true} key={idx} style={{ transformOrigin: '0 0 0' }} {...{ timeout: idx * 50 }}>
+            <Grid item md={4} sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer', borderBottom: '1px solid #4a4d56', [`&:hover`]: { bgcolor: (theme) => theme.palette.background.paper, color: (theme) => theme.palette.error.light } }}>
+              <Box component='img' alt='slider' src={`https://images.50bet.net/images/flags/England.png`} sx={{ mx: 1 }} />
+              <Typography noWrap sx={{ fontSize: (theme) => theme.spacing(1.6) }}>
+                England Premier
+              </Typography>
+            </Grid>
+          </Grow>
         ))
       }
     </Grid>

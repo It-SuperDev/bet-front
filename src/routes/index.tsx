@@ -6,5 +6,5 @@ import MainRoutes from './MainRoutes';
 // ==============================|| ROUTING RENDER ||============================== //
 
 export default function ThemeRoutes() {
-    return useRoutes([{ path: '/', element: <Navigate to="/sports" /> }, MainRoutes]);
+    return useRoutes([{ path: '/', element: <Navigate to="/sports/home" /> }, MainRoutes]);
 }

@@ -1,12 +1,17 @@
 import { BoxBorder } from 'components/Base';
-import { SportHead, SportBody } from '../../components/Part';
+import Grid from '@mui/material/Grid';
+import { SportHead } from '../../components/Part';
 
-const Home = () => {
+const Match = () => {
     return (
-        <BoxBorder sx={{ mt: 2 }}>
-            <SportHead />
-            <SportBody />
-        </BoxBorder>);
+        <Grid container justifyContent='space-between'>
+            <Grid item md={8.5} sm={8.7}>
+                <BoxBorder sx={{ mt: 2 }}>
+                    <SportHead />
+                </BoxBorder>;
+            </Grid>
+        </Grid>
+    )
 };
 
-export default Home;
+export default Match;
