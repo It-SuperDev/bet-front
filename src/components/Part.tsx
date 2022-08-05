@@ -91,7 +91,7 @@ export const PageList = () => {
 export const BodyHead = () => {
   return (
     <Grid container justifyContent='space-between'>
-      <Grid item md={8.5} sm={8.7}>
+      <Grid item md={8.7} sm={8.7}>
         <Slider />
       </Grid>
       <Grid item sm={3}>
@@ -198,9 +198,19 @@ const OverUpder = () => {
 }
 
 export const SportLeague = () => {
-  const matchs: number[] = [0, 1, 2, 3, 4];
+  const matchs: number[] = [0, 1, 2];
   return (
     <Stack>
+      <HStack sx={{ 
+        justifyContent: 'flex-start', 
+        bgcolor: (theme) => theme.palette.background.paper, 
+        px: 2, 
+        py: 1, 
+        borderTop: '1px solid #3d454c' }}
+        >
+        <Box component='img' alt='slider' src={`https://images.50bet.net/images/flags/England.png`} />
+        <Typography sx={{ pl: 1 }}>GERMANY BUNDESLIGA</Typography>
+      </HStack>
       <HStack sx={{
         bgcolor: (theme) => theme.palette.background.paper,
         color: (theme) => theme.palette.error.light,

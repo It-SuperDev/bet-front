@@ -96,7 +96,7 @@ export const One: ThemeOptions = {
         // },
         background: {
             paper: '#21242a',
-            default: '#30343c'
+            default: '#30343c',
         },
         // text: {
         //     primary: '#212121'
