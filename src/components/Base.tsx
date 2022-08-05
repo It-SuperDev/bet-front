@@ -1,6 +1,7 @@
 import { styled } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 
 export const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -34,7 +35,19 @@ export const StyledBadge = styled(Badge)(({ theme }) => ({
 export const BoxBorder = styled(Box)(({ theme }) => ({
   // borderWidth: theme.spacing(0.4),
   borderStyle: 'solid',
-  borderColor: theme.palette.primary.main
+  borderColor: theme.palette.secondary.main
+}))
+
+export const HStack = styled(Stack)(({theme}) => ({
+  flexDirection: 'row',
+  justifyContent: 'center',
+  alignItems: 'center'
+}))
+
+export const VStack = styled(Stack)(({theme}) => ({
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center'
 }))
 
 export const LayoutWrap = styled(Box)(({ theme }) => ({

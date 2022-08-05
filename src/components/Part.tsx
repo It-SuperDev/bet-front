@@ -5,16 +5,21 @@ import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
 import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
 import Typography from '@mui/material/Typography';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
 
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+// import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper'
-import { BoxBorder } from './Base'
+import { BoxBorder, HStack, VStack } from './Base'
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -72,7 +77,7 @@ export const PageList = () => {
         {
           list.map((item: { name: string, url: string }, idx: number) => (
             <ListItem disablePadding key={idx}>
-              <ListItemButton onClick={() => navigate(`${item.url}`)} sx={{ borderTopWidth: (theme) => theme.spacing(0.1), borderColor: (theme) => theme.palette.primary.main, borderStyle: 'solid' }}>
+              <ListItemButton onClick={() => navigate(`${item.url}`)} sx={{ borderTopWidth: (theme) => theme.spacing(0.1), borderColor: (theme) => theme.palette.secondary.main, borderStyle: 'solid' }}>
                 <ListItemText primary={item.name} sx={{ textAlign: 'center' }} />
               </ListItemButton>
             </ListItem>
@@ -115,7 +120,7 @@ export const SportHead = () => {
           <Typography noWrap sx={{ pl: 1, cursor: 'pointer', color: (theme) => theme.palette.error.dark, [`&:hover`]: { color: (theme) => theme.palette.error.light } }}>
             Favourite Events
           </Typography>
-          {
+          {/* {
             ['01', '02', '03'].map((item, idx) => (
               <Typography key={idx} noWrap sx={{ pl: 1, cursor: 'pointer', color: (theme) => theme.palette.success.main, [`&:hover`]: { color: (theme) => theme.palette.success.light } }}>
                 {`${item}/08`}
@@ -124,12 +129,12 @@ export const SportHead = () => {
           }
           <Typography noWrap sx={{ pl: 1, cursor: 'pointer', color: (theme) => theme.palette.success.light, [`&:hover`]: { color: (theme) => theme.palette.success.light } }}>
             Today
-          </Typography>
+          </Typography> */}
         </Stack>
       </Stack>
-      <Typography noWrap sx={{ p: 0.5, cursor: 'pointer', textAlign: 'center', bgcolor: (theme) => theme.palette.error.main }}>
+      {/* <Typography noWrap sx={{ p: 0.5, cursor: 'pointer', textAlign: 'center', bgcolor: (theme) => theme.palette.error.main }}>
         Outright(40)
-      </Typography>
+      </Typography> */}
     </Box>
   )
 }
@@ -150,5 +155,205 @@ export const SportBody = () => {
         ))
       }
     </Grid>
+  )
+}
+
+const Result = () => {
+  return (
+    <Button sx={{ color: '#ffffff', borderRight: '1px solid #3d454c', borderRadius: 0, width: 'calc(100% / 3)', justifyContent: 'center', height: '100%', px: (theme) => theme.spacing(0.5) }}>
+      {/* <KeyboardArrowUpIcon sx={{ fontSize: (theme) => theme.spacing(1.75) }} /> */}
+      <Typography component='span' sx={{ fontSize: (theme) => theme.spacing(1.5), display: 'flex', alignItems: 'center' }}>
+        2.54
+      </Typography>
+    </Button>
+  )
+}
+
+const Handicup = () => {
+  return (
+    <Button sx={{ color: '#ffffff', borderRight: '1px solid #3d454c', borderRadius: 0, width: 'calc(100% / 3)', justifyContent: 'space-between', height: '100%', px: (theme) => theme.spacing(0.5) }}>
+      <Typography component='span' sx={{ fontSize: (theme) => theme.spacing(1.5), display: 'flex', alignItems: 'center' }}>
+        {/* <KeyboardArrowUpIcon sx={{ fontSize: (theme) => theme.spacing(1.75) }} /> */}
+        +2
+      </Typography>
+      <Typography component='span' sx={{ fontSize: (theme) => theme.spacing(1.5) }}>
+        2.54
+      </Typography>
+    </Button>
+  )
+}
+
+const OverUpder = () => {
+  return (
+    <Button sx={{ color: '#ffffff', borderRadius: 0, width: 'calc(100% / 3)', justifyContent: 'space-between', height: '100%', px: (theme) => theme.spacing(0.5) }}>
+      <Typography component='span' sx={{ fontSize: (theme) => theme.spacing(1.5), display: 'flex', alignItems: 'center' }}>
+        {/* <KeyboardArrowUpIcon sx={{ fontSize: (theme) => theme.spacing(1.75) }} /> */}
+        O 1.5
+      </Typography>
+      <Typography component='span' sx={{ fontSize: (theme) => theme.spacing(1.5) }}>
+        2.54
+      </Typography>
+    </Button>
+  )
+}
+
+export const SportLeague = () => {
+  const matchs: number[] = [0, 1, 2, 3, 4];
+  return (
+    <Stack>
+      <HStack sx={{
+        bgcolor: (theme) => theme.palette.background.paper,
+        color: (theme) => theme.palette.error.light,
+        fontSize: (theme) => theme.spacing(1.5),
+        borderTop: '1px solid #3d454c',
+        width: '100%',
+        height: (theme) => theme.spacing(7.6)
+      }}>
+        <VStack sx={{ height: '100%', width: (theme) => theme.spacing(10), borderRight: '1px solid #3d454c' }}>
+          Time
+        </VStack>
+        <VStack sx={{ height: '100%', width: 'calc(33.33333% - 36.66667px)', borderRight: '1px solid #3d454c' }}>
+          Event
+        </VStack>
+        <HStack sx={{ height: '100%', width: 'calc(66.66667% - 73.33333px)' }}>
+          <VStack sx={{ height: '100%', width: '50%', borderRight: '1px solid #3d454c' }}>
+            <VStack sx={{ height: '50%', width: '100%' }}>Full Time</VStack>
+            <HStack sx={{ height: '50%', width: '100%', borderTop: '1px solid #3d454c' }}>
+              <HStack sx={{ height: '100%', width: 'calc(100% / 3)', borderRight: '1px solid #3d454c' }}>
+                1X2
+              </HStack>
+              <HStack sx={{ height: '100%', width: 'calc(100% / 3)', borderRight: '1px solid #3d454c' }}>
+                HDP
+              </HStack>
+              <HStack sx={{ height: '100%', width: 'calc(100% / 3)', }}>
+                OU
+              </HStack>
+            </HStack>
+          </VStack>
+          <VStack sx={{ height: '100%', width: '50%', borderRight: '1px solid #3d454c' }}>
+            <VStack sx={{ height: '50%', width: '100%' }}>Full Time</VStack>
+            <HStack sx={{ height: '50%', width: '100%', borderTop: '1px solid #3d454c' }}>
+              <VStack sx={{ height: '100%', width: 'calc(100% / 3)', borderRight: '1px solid #3d454c' }}>
+                1X2
+              </VStack>
+              <VStack sx={{ height: '100%', width: 'calc(100% / 3)', borderRight: '1px solid #3d454c' }}>
+                HDP
+              </VStack>
+              <VStack sx={{ height: '100%', width: 'calc(100% / 3)', }}>
+                OU
+              </VStack>
+            </HStack>
+          </VStack>
+        </HStack>
+        <VStack sx={{ width: 30 }}>M</VStack>
+      </HStack>
+
+
+      <Stack sx={{ bgcolor: (theme) => theme.palette.background.default }}>
+        {
+          matchs.map((idx: number) => (
+            <SportMatch key={idx} idx={idx} />
+          ))
+        }
+      </Stack>
+
+    </Stack>
+  )
+}
+
+export const SportMatch = (props: any) => {
+  const { idx }: any = props
+  return (
+    <Grow in={true} style={{ transformOrigin: '0 0 0' }} {...{ timeout: idx * 200 }}>
+      <VStack>
+        <HStack sx={{
+          fontSize: (theme) => theme.spacing(1.5),
+          borderTop: '1px solid #3d454c',
+          width: '100%',
+          justifyContent: 'flex-start',
+          height: (theme) => theme.spacing(5)
+        }}>
+          <VStack sx={{ height: '100%', width: (theme) => theme.spacing(10), borderRight: '1px solid #3d454c' }}>
+            <IconButton>
+              <StarBorderIcon />
+            </IconButton>
+          </VStack>
+          <HStack sx={{ height: '100%', width: 'calc(33.33333% - 36.66667px)', borderRight: '1px solid #3d454c', justifyContent: 'flex-start' }}>
+            <Typography sx={{ px: 1, fontSize: (theme) => theme.spacing(1.5) }}>1</Typography>
+            <Typography sx={{ px: 1, fontSize: (theme) => theme.spacing(1.5) }}>Real Espana</Typography>
+          </HStack>
+          <HStack sx={{ height: '100%', width: 'calc(66.66667% - 73.33333px)' }}>
+            <HStack sx={{ height: '100%', width: '50%', borderRight: '1px solid #3d454c' }}>
+              <Result />
+              <Handicup />
+              <OverUpder />
+            </HStack>
+            <HStack sx={{ height: '100%', width: '50%', borderRight: '1px solid #3d454c' }}>
+              <Result />
+              <Handicup />
+              <OverUpder />
+            </HStack>
+          </HStack>
+          <HStack />
+        </HStack>
+
+        <HStack sx={{
+          fontSize: (theme) => theme.spacing(1.5),
+          width: '100%',
+          justifyContent: 'flex-start',
+          height: (theme) => theme.spacing(5)
+        }}>
+          <VStack sx={{ height: '100%', width: (theme) => theme.spacing(10), borderRight: '1px solid #3d454c' }}>
+            <Typography sx={{ px: 1, fontSize: (theme) => theme.spacing(1.5) }}>58'</Typography>
+          </VStack>
+          <HStack sx={{ height: '100%', width: 'calc(33.33333% - 36.66667px)', borderRight: '1px solid #3d454c', justifyContent: 'flex-start' }}>
+            <Typography sx={{ px: 1, fontSize: (theme) => theme.spacing(1.5) }}>0</Typography>
+            <Typography sx={{ px: 1, fontSize: (theme) => theme.spacing(1.5) }}>Atletico Vega Real</Typography>
+          </HStack>
+          <HStack sx={{ height: '100%', width: 'calc(66.66667% - 73.33333px)' }}>
+            <HStack sx={{ height: '100%', width: '50%', borderRight: '1px solid #3d454c' }}>
+              <Result />
+              <Handicup />
+              <OverUpder />
+            </HStack>
+            <HStack sx={{ height: '100%', width: '50%', borderRight: '1px solid #3d454c' }}>
+              <Result />
+              <Handicup />
+              <OverUpder />
+            </HStack>
+          </HStack>
+          <VStack>
+            <IconButton sx={{ fontSize: (theme) => theme.spacing(1.5), width: 30 }}>+10</IconButton>
+          </VStack>
+        </HStack>
+
+        <HStack sx={{
+          fontSize: (theme) => theme.spacing(1.5),
+          width: '100%',
+          justifyContent: 'flex-start',
+          height: (theme) => theme.spacing(5)
+        }}>
+          <VStack sx={{ height: '100%', width: (theme) => theme.spacing(10), borderRight: '1px solid #3d454c' }}>
+          </VStack>
+          <HStack sx={{ height: '100%', width: 'calc(33.33333% - 36.66667px)', borderRight: '1px solid #3d454c', justifyContent: 'flex-start' }}>
+            <Typography sx={{ px: 1, fontSize: (theme) => theme.spacing(1.5) }}>&nbsp;&nbsp;</Typography>
+            <Typography sx={{ px: 1, fontSize: (theme) => theme.spacing(1.5) }}>Draw</Typography>
+          </HStack>
+          <HStack sx={{ height: '100%', width: 'calc(66.66667% - 73.33333px)' }}>
+            <HStack sx={{ height: '100%', width: '50%', borderRight: '1px solid #3d454c' }}>
+              <Result />
+              <Handicup />
+              <OverUpder />
+            </HStack>
+            <HStack sx={{ height: '100%', width: '50%', borderRight: '1px solid #3d454c' }}>
+              <Result />
+              <Handicup />
+              <OverUpder />
+            </HStack>
+          </HStack>
+          <VStack />
+        </HStack>
+      </VStack >
+    </Grow>
   )
 }

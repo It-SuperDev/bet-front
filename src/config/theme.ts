@@ -69,11 +69,11 @@ const overrides = {
 export const One: ThemeOptions = {
     palette: {
         mode: 'dark',
-        primary: {
+        // primary: {
             // main: '#cf2424',
-            main: '#6a6b70'
+            // main: '#6a6b70'
             // light: '#212121'
-        },
+        // },
         success: {
             main: '#46bf00',
             light: '#6dd92e',
@@ -84,13 +84,13 @@ export const One: ThemeOptions = {
             main: '#ff2c16',
             dark: '#c91300',
         },
-        // secondary: {
-        //     main: '#313cad',
+        secondary: {
+            main: '#6a6b70',
         //     light: '#ffffff', //inputColor
         //     dark: '#ffffff' //imgColor
-        // },
+        },
         // info: {
-        //     main: '#0288d1',
+            // main: '#6a6b70',
         //     light: '#000000', //inputBorder
         //     dark: '#00000078' //effectColor
         // },
