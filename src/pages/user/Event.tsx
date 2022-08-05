@@ -7,7 +7,7 @@ const Match = () => {
         <Grid container justifyContent='space-between'>
             <Grid item md={8.7} sm={8.7}>
                 <BoxBorder sx={{ mt: 2 }}>
-                    <SportHead />
+                    <SportHead {...{ sportId: 1, live: true }} />
                     <SportEvent />
                 </BoxBorder>
             </Grid>

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
@@ -19,13 +20,13 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper'
-import { BoxBorder, HStack, VStack } from './Base'
+import { Navigation, Pagination, Autoplay } from 'swiper';
+import { BoxBorder, HStack, VStack } from './Base';
+import { SportsList } from '../config/sports';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { useState } from 'react';
 
 export const Slider = () => {
   return (
@@ -52,7 +53,7 @@ export const Slider = () => {
 }
 
 export const PageList = () => {
-  const list: { name: string, url: string }[] = [{ name: 'Home', url: 'home' }, { name: 'Live', url: 'match' }, { name: 'Bet List', url: 'bet_list' }];
+  const list: { name: string, url: string }[] = [{ name: 'Home', url: 'home' }, { name: 'Live', url: 'live' }, { name: 'Bet List', url: 'bet_list' }];
   const navigate = useNavigate();
 
   return (
@@ -103,40 +104,101 @@ export const BodyHead = () => {
   )
 }
 
-export const SportHead = () => {
+export const SportHead = (props) => {
+  const { sportId, dateList, today, qutright, favourite, live, league }: any = props;
+
   return (
     <Box sx={{ bgcolor: (theme) => theme.palette.background.paper }}>
       <Stack direction='row' alignItems='center' justifyContent='space-between' p={2} >
+        {(() => {
+          if (!sportId || !SportsList[sportId]) {
+            return (
+              <HStack>
+                <SportsSoccerIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
+                <Typography
+                  variant='h5'
+                  noWrap
+                  component='h5'
+                  ml={1}
+                >
+                  Sports
+                </Typography>
+              </HStack>
+            )
+          } else {
+            return (<HStack>
+              {SportsList[sportId].icon}
+              <Typography
+                variant='h5'
+                noWrap
+                component='h5'
+                ml={1}
+              >
+                {SportsList[sportId].name}
+              </Typography>
+            </HStack>)
+          }
+        })()}
         <Stack direction='row' alignItems='center' >
-          <SportsSoccerIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
-          <Typography
-            variant='h5'
-            noWrap
-            component='h5'
-            ml={1}
-          >
-            Soccer
-          </Typography>
-        </Stack>
-        <Stack direction='row' alignItems='center' >
-          <Typography noWrap sx={{ pl: 1, cursor: 'pointer', color: (theme) => theme.palette.error.dark, [`&:hover`]: { color: (theme) => theme.palette.error.light } }}>
-            Favourite Events
-          </Typography>
-          {/* {
-            ['01', '02', '03'].map((item, idx) => (
+          {
+            favourite && (
+              <Typography noWrap sx={{ pl: 1, cursor: 'pointer', color: (theme) => theme.palette.error.dark, [`&:hover`]: { color: (theme) => theme.palette.error.light } }}>
+                Favourite Events
+              </Typography>
+            )
+          }
+          {
+            live && (
+              <Typography noWrap sx={{ pl: 1, cursor: 'pointer', color: (theme) => theme.palette.error.dark, [`&:hover`]: { color: (theme) => theme.palette.error.light } }}>
+                Back to Live
+              </Typography>
+            )
+          }
+          {
+            league && (
+              <Typography noWrap sx={{ pl: 1, cursor: 'pointer', color: (theme) => theme.palette.error.dark, [`&:hover`]: { color: (theme) => theme.palette.error.light } }}>
+                Back to League
+              </Typography>
+            )
+          }
+          {
+            dateList && ['01', '02', '03'].map((item, idx) => (
               <Typography key={idx} noWrap sx={{ pl: 1, cursor: 'pointer', color: (theme) => theme.palette.success.main, [`&:hover`]: { color: (theme) => theme.palette.success.light } }}>
                 {`${item}/08`}
               </Typography>
             ))
           }
-          <Typography noWrap sx={{ pl: 1, cursor: 'pointer', color: (theme) => theme.palette.success.light, [`&:hover`]: { color: (theme) => theme.palette.success.light } }}>
-            Today
-          </Typography> */}
+          {
+            today && (
+              <Typography noWrap
+                sx={{
+                  pl: 1,
+                  cursor: 'pointer',
+                  color: (theme) => theme.palette.success.light,
+                  [`&:hover`]: {
+                    color: (theme) => theme.palette.success.light
+                  }
+                }}
+              >
+                Today
+              </Typography>
+            )
+          }
         </Stack>
       </Stack>
-      {/* <Typography noWrap sx={{ p: 0.5, cursor: 'pointer', textAlign: 'center', bgcolor: (theme) => theme.palette.error.main }}>
-        Outright(40)
-      </Typography> */}
+      {
+        qutright && (
+          <Typography noWrap
+            sx={{
+              p: 0.5,
+              cursor: 'pointer',
+              textAlign: 'center',
+              bgcolor: (theme) => theme.palette.error.main
+            }}
+          >
+            Outright(40)
+          </Typography>)
+      }
     </Box>
   )
 }
@@ -205,7 +267,7 @@ export const SportLeague = () => {
     <Stack>
       <HStack sx={{
         justifyContent: 'flex-start',
-        bgcolor: (theme) => theme.palette.background.paper,
+        bgcolor: (theme) => theme.palette.secondary.dark,
         px: 2,
         py: 1,
         borderTop: '1px solid #3d454c'
@@ -215,7 +277,7 @@ export const SportLeague = () => {
         <Typography sx={{ pl: 1 }}>GERMANY BUNDESLIGA</Typography>
       </HStack>
       <HStack sx={{
-        bgcolor: (theme) => theme.palette.background.paper,
+        bgcolor: (theme) => theme.palette.secondary.dark,
         color: (theme) => theme.palette.error.light,
         fontSize: (theme) => theme.spacing(1.5),
         borderTop: '1px solid #3d454c',
@@ -429,5 +491,31 @@ export const SportEventMarket = (props: any) => {
         </Collapse>
       </Box>
     </Grow>
+  )
+}
+
+export const LiveList = () => {
+  const list: string[] = ['soccer', 'volleyball', 'bascketball', 'tennis', 'table tennis', 'ice hockey']
+  const [active, setActive] = useState(-1);
+  return (
+    <HStack sx={{ justifyContent: 'flex-start' }}>
+      {
+        list.map((item: string, idx: number) => (
+          <BoxBorder key={idx} sx={{ bgcolor: (theme) => theme.palette.background.paper, borderBottomWidth: 0, mr: 1 }}>
+            <Button
+              onClick={() => setActive(idx)}
+              sx={{
+                width: '100%',
+                px: 2,
+                color: active === idx ? (theme) => theme.palette.success.main : '#ffffff',
+                [`&:hover`]: {
+                  color: (theme) => theme.palette.success.main,
+                }
+              }}
+            >{item}</Button>
+          </BoxBorder>
+        ))
+      }
+    </HStack >
   )
 }

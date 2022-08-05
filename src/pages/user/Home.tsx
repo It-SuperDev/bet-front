@@ -4,7 +4,7 @@ import { SportHead, SportBody } from '../../components/Part';
 const Home = () => {
     return (
         <BoxBorder sx={{ mt: 2 }}>
-            <SportHead />
+            <SportHead {...{ sportId: 1, dateList: true, today: true, qutright: 19, favourite: true }} />
             <SportBody />
         </BoxBorder>);
 };
