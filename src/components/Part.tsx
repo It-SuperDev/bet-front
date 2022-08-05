@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
 import Typography from '@mui/material/Typography';
@@ -14,8 +15,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-// import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper'
@@ -24,6 +25,7 @@ import { BoxBorder, HStack, VStack } from './Base'
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { useState } from 'react';
 
 export const Slider = () => {
   return (
@@ -201,13 +203,14 @@ export const SportLeague = () => {
   const matchs: number[] = [0, 1, 2];
   return (
     <Stack>
-      <HStack sx={{ 
-        justifyContent: 'flex-start', 
-        bgcolor: (theme) => theme.palette.background.paper, 
-        px: 2, 
-        py: 1, 
-        borderTop: '1px solid #3d454c' }}
-        >
+      <HStack sx={{
+        justifyContent: 'flex-start',
+        bgcolor: (theme) => theme.palette.background.paper,
+        px: 2,
+        py: 1,
+        borderTop: '1px solid #3d454c'
+      }}
+      >
         <Box component='img' alt='slider' src={`https://images.50bet.net/images/flags/England.png`} />
         <Typography sx={{ pl: 1 }}>GERMANY BUNDESLIGA</Typography>
       </HStack>
@@ -222,10 +225,10 @@ export const SportLeague = () => {
         <VStack sx={{ height: '100%', width: (theme) => theme.spacing(10), borderRight: '1px solid #3d454c' }}>
           Time
         </VStack>
-        <VStack sx={{ height: '100%', width: 'calc(33.33333% - 36.66667px)', borderRight: '1px solid #3d454c' }}>
+        <VStack sx={{ height: '100%', width: 'calc((100% - 110px) / 3 )', borderRight: '1px solid #3d454c' }}>
           Event
         </VStack>
-        <HStack sx={{ height: '100%', width: 'calc(66.66667% - 73.33333px)' }}>
+        <HStack sx={{ height: '100%', width: 'calc((100% - 110px) / 3 * 2)' }}>
           <VStack sx={{ height: '100%', width: '50%', borderRight: '1px solid #3d454c' }}>
             <VStack sx={{ height: '50%', width: '100%' }}>Full Time</VStack>
             <HStack sx={{ height: '50%', width: '100%', borderTop: '1px solid #3d454c' }}>
@@ -288,11 +291,11 @@ export const SportMatch = (props: any) => {
               <StarBorderIcon />
             </IconButton>
           </VStack>
-          <HStack sx={{ height: '100%', width: 'calc(33.33333% - 36.66667px)', borderRight: '1px solid #3d454c', justifyContent: 'flex-start' }}>
+          <HStack sx={{ height: '100%', width: 'calc((100% - 110px) / 3)', borderRight: '1px solid #3d454c', justifyContent: 'flex-start' }}>
             <Typography sx={{ px: 1, fontSize: (theme) => theme.spacing(1.5) }}>1</Typography>
             <Typography sx={{ px: 1, fontSize: (theme) => theme.spacing(1.5) }}>Real Espana</Typography>
           </HStack>
-          <HStack sx={{ height: '100%', width: 'calc(66.66667% - 73.33333px)' }}>
+          <HStack sx={{ height: '100%', width: 'calc((100% - 110px) / 3 * 2)' }}>
             <HStack sx={{ height: '100%', width: '50%', borderRight: '1px solid #3d454c' }}>
               <Result />
               <Handicup />
@@ -316,11 +319,11 @@ export const SportMatch = (props: any) => {
           <VStack sx={{ height: '100%', width: (theme) => theme.spacing(10), borderRight: '1px solid #3d454c' }}>
             <Typography sx={{ px: 1, fontSize: (theme) => theme.spacing(1.5) }}>58'</Typography>
           </VStack>
-          <HStack sx={{ height: '100%', width: 'calc(33.33333% - 36.66667px)', borderRight: '1px solid #3d454c', justifyContent: 'flex-start' }}>
+          <HStack sx={{ height: '100%', width: 'calc((100% - 110px) / 3)', borderRight: '1px solid #3d454c', justifyContent: 'flex-start' }}>
             <Typography sx={{ px: 1, fontSize: (theme) => theme.spacing(1.5) }}>0</Typography>
             <Typography sx={{ px: 1, fontSize: (theme) => theme.spacing(1.5) }}>Atletico Vega Real</Typography>
           </HStack>
-          <HStack sx={{ height: '100%', width: 'calc(66.66667% - 73.33333px)' }}>
+          <HStack sx={{ height: '100%', width: 'calc((100% - 110px) / 3 * 2)' }}>
             <HStack sx={{ height: '100%', width: '50%', borderRight: '1px solid #3d454c' }}>
               <Result />
               <Handicup />
@@ -345,11 +348,11 @@ export const SportMatch = (props: any) => {
         }}>
           <VStack sx={{ height: '100%', width: (theme) => theme.spacing(10), borderRight: '1px solid #3d454c' }}>
           </VStack>
-          <HStack sx={{ height: '100%', width: 'calc(33.33333% - 36.66667px)', borderRight: '1px solid #3d454c', justifyContent: 'flex-start' }}>
+          <HStack sx={{ height: '100%', width: 'calc((100% - 110px) / 3)', borderRight: '1px solid #3d454c', justifyContent: 'flex-start' }}>
             <Typography sx={{ px: 1, fontSize: (theme) => theme.spacing(1.5) }}>&nbsp;&nbsp;</Typography>
             <Typography sx={{ px: 1, fontSize: (theme) => theme.spacing(1.5) }}>Draw</Typography>
           </HStack>
-          <HStack sx={{ height: '100%', width: 'calc(66.66667% - 73.33333px)' }}>
+          <HStack sx={{ height: '100%', width: 'calc((100% - 110px) / 3 * 2)' }}>
             <HStack sx={{ height: '100%', width: '50%', borderRight: '1px solid #3d454c' }}>
               <Result />
               <Handicup />
@@ -364,6 +367,67 @@ export const SportMatch = (props: any) => {
           <VStack />
         </HStack>
       </VStack >
+    </Grow>
+  )
+}
+
+export const SportEvent = () => {
+  return (
+    <>
+      {
+        [1, 2, 3, 4, 5].map((idx: number) => (
+          <SportEventMarket key={idx} {...{ idx }} />
+        ))
+      }
+    </>
+  )
+}
+
+export const SportEventMarket = (props: any) => {
+  const { idx }: any = props;
+  const [active, setActive] = useState(false);
+  return (
+    <Grow in={true} style={{ transformOrigin: '0 0 0' }} {...{ timeout: idx * 200 }}>
+      <Box>
+        <HStack sx={{
+          justifyContent: 'space-between',
+          bgcolor: (theme) => theme.palette.secondary.dark,
+          borderColor: (theme) => theme.palette.secondary.main,
+          borderWidth: '1px',
+          borderStyle: 'solid none none none',
+          px: 2.5,
+        }}
+        >
+          <Typography sx={{ fontSize: (theme) => theme.spacing(1.75) }}>
+            1X2
+          </Typography>
+          <IconButton onClick={() => setActive(!active)}>
+            {
+              active ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
+            }
+          </IconButton>
+        </HStack>
+        <Collapse in={active} timeout="auto" unmountOnExit>
+          <Box sx={{ bgcolor: '#21242ac9', py: 1, display: 'flex', flexWrap: 'wrap' }}>
+            {
+              [1, 2, 3, 4, 5].map((idx: number) => (
+                <Grow in={true} key={idx} style={{ transformOrigin: '0 0 0' }} {...{ timeout: idx * 200 }}>
+                  <BoxBorder sx={{ margin: 1, flexGrow: 1, width: 'calc(100% / 4)' }}>
+                    <Button sx={{ width: '100%', display: 'flex', justifyContent: 'space-between', padding: (theme) => theme.spacing(0.5) }}>
+                      <Typography sx={{ fontSize: (theme) => theme.spacing(1.5), color: '#ffffff' }}>
+                        Eintracht Frankfurt / Draw
+                      </Typography>
+                      <Typography sx={{ color: (theme) => theme.palette.success.main, fontSize: (theme) => theme.spacing(1.5) }}>
+                        2.57
+                      </Typography>
+                    </Button>
+                  </BoxBorder>
+                </Grow>
+              ))
+            }
+          </Box>
+        </Collapse>
+      </Box>
     </Grow>
   )
 }

@@ -87,7 +87,7 @@ export const One: ThemeOptions = {
         secondary: {
             main: '#6a6b70',
         //     light: '#ffffff', //inputColor
-        //     dark: '#ffffff' //imgColor
+            dark: '#191c22'
         },
         // info: {
             // main: '#6a6b70',
