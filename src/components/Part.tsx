@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
@@ -52,6 +52,52 @@ export const Slider = () => {
   );
 }
 
+export const LivePoint = () => {
+  return (
+    <BoxBorder sx={{ height: '100%' }}>
+      <VStack sx={{
+        py: theme => theme.spacing(2.5),
+        justifyContent: 'space-between',
+        height: '100%',
+        width: '100%',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '100% 100%',
+        backgroundImage: `url(${require('../assets/img/background/scoreboard.jpg')})`
+      }}>
+        <BoxBorder sx={{ width: '75%', bgcolor: '#21242ac9', py: 1 }}>
+          <HStack>
+            <Box component='img' alt='slider' src={`https://images.50bet.net/images/flags/England.png`} />
+            <Typography sx={{ pl: 1 }}>GERMANY BUNDESLIGA</Typography>
+          </HStack>
+        </BoxBorder>
+        <HStack sx={{ minHeight: (theme) => theme.spacing(15), width: '75%', justifyContent: 'space-between', }}>
+          <BoxBorder sx={{ width: 'calc(100% / 3 - 8px)', bgcolor: '#21242ac9', height: '100%' }}>
+            <HStack sx={{ width: '100%', height: '100%' }}>
+              <Typography variant="h5">
+                Lotte Giants
+              </Typography>
+            </HStack>
+          </BoxBorder>
+          <BoxBorder sx={{ width: 'calc(100% / 3 - 8px)', bgcolor: '#21242ac9', height: '100%' }}>
+            <HStack sx={{ width: '100%', height: '100%' }}>
+              <Typography variant="h3">
+                1 : 0
+              </Typography>
+            </HStack>
+          </BoxBorder>
+          <BoxBorder sx={{ width: 'calc(100% / 3 - 8px)', bgcolor: '#21242ac9', height: '100%' }}>
+            <HStack sx={{ width: '100%', height: '100%' }}>
+              <Typography variant="h5">
+                Lotte Giants
+              </Typography>
+            </HStack>
+          </BoxBorder>
+        </HStack>
+      </VStack>
+    </BoxBorder>
+  )
+}
+
 export const PageList = () => {
   const list: { name: string, url: string }[] = [{ name: 'Home', url: 'home' }, { name: 'Live', url: 'live' }, { name: 'Bet List', url: 'bet_list' }];
   const navigate = useNavigate();
@@ -95,7 +141,7 @@ export const BodyHead = () => {
   return (
     <Grid container justifyContent='space-between'>
       <Grid item md={8.7} sm={8.7}>
-        <Slider />
+        <LivePoint />
       </Grid>
       <Grid item sm={3}>
         <PageList />
@@ -447,7 +493,7 @@ export const SportEvent = () => {
 
 export const SportEventMarket = (props: any) => {
   const { idx }: any = props;
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
   return (
     <Grow in={true} style={{ transformOrigin: '0 0 0' }} {...{ timeout: idx * 200 }}>
       <Box>

@@ -16,6 +16,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import { StyledBadge } from './Base';
 
@@ -112,17 +113,28 @@ const Header = () => {
               <Button
                 aria-controls="menu-appbar"
                 onClick={handleOpenUserMenu}
-                sx={{ py: 0, px: 2, bgcolor: '#ffffff36', borderRadius: 0, minWidth: (theme) => theme.spacing(14), display: 'flex', alignItems: 'center', justifyContent: 'space-between', minHeight: (theme) => theme.spacing(8) }}
+                sx={{
+                  py: 0, px: 2,
+                  bgcolor: '#ffffff36',
+                  borderRadius: 0,
+                  color: '#ffffff',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  minWidth: (theme) => theme.spacing(14),
+                  minHeight: (theme) => theme.spacing(8),
+                }}
               >
                 <StyledBadge
                   overlap="circular"
                   anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                   variant="dot"
                 >
-                  <Avatar alt="User" src={require('assets/img/users/1.png')} />
+                  {/* <Avatar alt="User" src={require('assets/img/users/1.png')} /> */}
+                  <AccountCircleIcon sx={{ fontSize: (theme) => theme.spacing(4) }} />
                 </StyledBadge>
                 <Typography sx={{ color: 'inherit', ml: 1 }}>
-                  XXX
+                  Admin
                 </Typography>
               </Button>
             </Tooltip>
@@ -165,19 +177,21 @@ const Header = () => {
             <Stack direction="row" alignItems='center' gap={2}>
               <Box
                 component="img"
-                src={require(`../assets/img/flags/${isEn ? lang[0]: lang[1]}.png`)}
+                src={require(`../assets/img/flags/${isEn ? lang[0] : lang[1]}.png`)}
                 alt='logo'
                 sx={{ cursor: 'pointer', width: (theme) => theme.spacing(3), height: (theme) => theme.spacing(2) }}
               />
               <Box
                 component="img"
                 onClick={handChangelang}
-                src={require(`../assets/img/flags/${!isEn ? lang[0]: lang[1]}.png`)}
+                src={require(`../assets/img/flags/${!isEn ? lang[0] : lang[1]}.png`)}
                 alt='logo'
-                sx={{ cursor: 'pointer', transform: 'scale(0.99)', opacity: '0.7', width: (theme) => theme.spacing(3), height: (theme) => theme.spacing(2),
-                [`&:hover`] : {
-                  transform: 'scale(1.2)', opacity: 1, transition: 'transform 0.5s'
-                } }}
+                sx={{
+                  cursor: 'pointer', transform: 'scale(0.99)', opacity: '0.7', width: (theme) => theme.spacing(3), height: (theme) => theme.spacing(2),
+                  [`&:hover`]: {
+                    transform: 'scale(1.2)', opacity: 1, transition: 'transform 0.5s'
+                  }
+                }}
               />
             </Stack>
             <Box sx={{ flexGrow: 0 }}>
@@ -187,11 +201,16 @@ const Header = () => {
                   onClick={handleOpenOddMenu}
                   endIcon={<KeyboardArrowDownIcon />}
                   sx={{
-                    px: 1, minWidth: (theme) => theme.spacing(8),
-                    [`&:hover`]: { bgcolor: '#ffffff36' }
+                    px: 1,
+                    minWidth: (theme) => theme.spacing(8),
+                    color: (theme) => theme.palette.secondary.main,
+                    [`&:hover`]: {
+                      color: '#ffffff',
+                      // bgcolor: '#ffffff36'
+                    }
                   }}
                 >
-                  <Typography sx={{ color: 'inherit' }}>
+                  <Typography >
                     American
                   </Typography>
                 </Button>
