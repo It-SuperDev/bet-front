@@ -3,10 +3,11 @@ import { lazy } from 'react';
 import Layout from 'layouts';
 import Loadable from 'components/Loadable';
 
-const Home = Loadable(lazy(() => import('../pages/user/Home')));
-const Match = Loadable(lazy(() => import('../pages/user/Match')));
-const Live = Loadable(lazy(() => import('../pages/user/Live')));
-const Event = Loadable(lazy(() => import('../pages/user/Event')));
+const Home = Loadable(lazy(() => import('../pages/player/Home')));
+const Match = Loadable(lazy(() => import('../pages/player/Match')));
+const Live = Loadable(lazy(() => import('../pages/player/Live')));
+const Event = Loadable(lazy(() => import('../pages/player/Event')));
+const BetList = Loadable(lazy(() => import('../pages/player/BetList')));
 
 const MainRoutes = {
     path: '/sports',
@@ -23,6 +24,10 @@ const MainRoutes = {
         {
             path: 'match',
             element: <Match />
+        },
+        {
+            path: 'bet_list',
+            element: <BetList />
         },
         {
             path: 'event/:id',
