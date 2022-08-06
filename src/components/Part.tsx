@@ -567,8 +567,8 @@ export const LiveList = () => {
   )
 }
 
-
-export const ManageHead = () => {
+export const ManageHead = (props) => {
+  const { title }: any = props;
   return (
     <Box sx={{ bgcolor: (theme) => theme.palette.background.paper }}>
       <Stack direction='row' alignItems='center' justifyContent='space-between' p={2} >
@@ -580,18 +580,9 @@ export const ManageHead = () => {
             component='h5'
             ml={1}
           >
-            Bet List
+            {title ? title : 'Manage Title'}
           </Typography>
         </HStack>
-        <Stack direction='row' alignItems='center' >
-          {/* {
-            favourite && (
-              <Typography noWrap sx={{ pl: 1, cursor: 'pointer', color: (theme) => theme.palette.error.dark, [`&:hover`]: { color: (theme) => theme.palette.error.light } }}>
-                Favourite Events
-              </Typography>
-            )
-          } */}
-        </Stack>
       </Stack>
     </Box>
   )
