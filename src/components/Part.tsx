@@ -18,6 +18,7 @@ import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import ListAltIcon from '@mui/icons-material/ListAlt';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper';
@@ -563,5 +564,35 @@ export const LiveList = () => {
         ))
       }
     </HStack >
+  )
+}
+
+
+export const ManageHead = () => {
+  return (
+    <Box sx={{ bgcolor: (theme) => theme.palette.background.paper }}>
+      <Stack direction='row' alignItems='center' justifyContent='space-between' p={2} >
+        <HStack>
+          <ListAltIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
+          <Typography
+            variant='h5'
+            noWrap
+            component='h5'
+            ml={1}
+          >
+            Bet List
+          </Typography>
+        </HStack>
+        <Stack direction='row' alignItems='center' >
+          {/* {
+            favourite && (
+              <Typography noWrap sx={{ pl: 1, cursor: 'pointer', color: (theme) => theme.palette.error.dark, [`&:hover`]: { color: (theme) => theme.palette.error.light } }}>
+                Favourite Events
+              </Typography>
+            )
+          } */}
+        </Stack>
+      </Stack>
+    </Box>
   )
 }
