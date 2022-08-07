@@ -2,6 +2,8 @@ import { styled } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import OutlinedInput from '@mui/material/OutlinedInput';
+
 
 export const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -38,13 +40,13 @@ export const BoxBorder = styled(Box)(({ theme }) => ({
   borderColor: theme.palette.secondary.main
 }))
 
-export const HStack = styled(Stack)(({theme}) => ({
+export const HStack = styled(Stack)(({ theme }) => ({
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center'
 }))
 
-export const VStack = styled(Stack)(({theme}) => ({
+export const VStack = styled(Stack)(({ theme }) => ({
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center'
@@ -59,3 +61,18 @@ export const LayoutWrap = styled(Box)(({ theme }) => ({
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover'
 }))
+
+export const OutInput = styled(OutlinedInput)(({ theme }) => ({
+  width: theme.spacing(20),
+  [`& .MuiSelect-select`]: {
+    backgroundColor: theme.palette.background.paper,
+    paddingTop: theme.spacing(0.75),
+    paddingBottom: theme.spacing(0.75),
+  },
+  [`fieldset`]: {
+    borderColor: `${theme.palette.secondary.main} !important`,
+    borderRadius: 0,
+    borderWidth: theme.spacing(0.25),
+    borderStyle: 'solid',
+  }
+}));

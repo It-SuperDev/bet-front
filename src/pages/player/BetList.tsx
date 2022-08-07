@@ -11,26 +11,15 @@ import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 
-import OutlinedInput from '@mui/material/OutlinedInput';
+
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
-import { BoxBorder, HStack } from 'components/Base';
+import { BoxBorder, HStack, OutInput } from 'components/Base';
 import { ManageHead } from 'components/Part';
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-    PaperProps: {
-        style: {
-            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-            width: 250,
-        },
-    },
-};
 
 const names = [
     'Current week',
@@ -163,23 +152,23 @@ const Home = () => {
                 <Select
                     value={personName}
                     onChange={handleChange}
-                    input={<OutlinedInput />}
-                    MenuProps={MenuProps}
-                >
-                    {names.map((name) => (
-                        <MenuItem
-                            key={name}
-                            value={name}
-                        >
-                            {name}
-                        </MenuItem>
-                    ))}
-                </Select>
-                <Select
-                    value={personName}
-                    onChange={handleChange}
-                    input={<OutlinedInput />}
-                    MenuProps={MenuProps}
+                    input={<OutInput />}
+                    MenuProps={{
+                        anchorOrigin: {
+                            vertical: 'bottom',
+                            horizontal: 'right',
+                        },
+                        transformOrigin: {
+                            vertical: 'top',
+                            horizontal: 'right',
+                        },
+                        PaperProps: {
+                            sx: {
+                                width: (theme) => theme.spacing(20),
+                                borderRadius: 0
+                            },
+                        },
+                    }}
                 >
                     {names.map((name) => (
                         <MenuItem
