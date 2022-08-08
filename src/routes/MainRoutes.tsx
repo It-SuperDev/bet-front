@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 
-import Layout from 'layouts';
+import { MainLayout, FullLayout } from 'layouts';
 import Loadable from 'components/Loadable';
 
 const Home = Loadable(lazy(() => import('../pages/player/Home')));
@@ -8,10 +8,11 @@ const Match = Loadable(lazy(() => import('../pages/player/Match')));
 const Live = Loadable(lazy(() => import('../pages/player/Live')));
 const Event = Loadable(lazy(() => import('../pages/player/Event')));
 const BetList = Loadable(lazy(() => import('../pages/player/BetList')));
+const Login = Loadable(lazy(() => import('../pages/auth/Login')));
 
-const MainRoutes = {
+export const SportsRoutes = {
     path: '/sports',
-    element: <Layout />,
+    element: <MainLayout />,
     children: [
         {
             path: 'home',
@@ -36,4 +37,13 @@ const MainRoutes = {
     ]
 };
 
-export default MainRoutes;
+export const AuthRoutes = {
+    path: '/',
+    element: <FullLayout />,
+    children: [
+        {
+            path: '/login',
+            element: <Login />
+        }
+    ]
+}

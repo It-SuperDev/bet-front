@@ -57,7 +57,14 @@ export const LayoutWrap = styled(Box)(({ theme }) => ({
   padding: theme.spacing(4, 0),
   backgroundImage: `url(${require('../assets/img/background/1.png')})`,
   backgroundAttachment: 'fixed',
-  backgroundPosition: 'top',
+  backgroundPosition: 'right',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover'
+}))
+
+export const FullLayoutWrap = styled(Box)(({ theme }) => ({
+  minHeight: '100vh',
+  backgroundImage: `url(${require('../assets/img/background/5.jpg')})`,
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover'
 }))

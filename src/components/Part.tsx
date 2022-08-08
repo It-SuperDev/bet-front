@@ -142,7 +142,7 @@ export const BodyHead = () => {
   return (
     <Grid container justifyContent='space-between'>
       <Grid item md={8.7} sm={8.7}>
-        <LivePoint />
+        <Slider />
       </Grid>
       <Grid item sm={3}>
         <PageList />
