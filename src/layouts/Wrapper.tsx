@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 
 const Wrapper = () => (
     <LayoutWrap>
-        <Container maxWidth='lg'>
+        <Container maxWidth='lg' sx={{ px: '0 !important' }}>
             <BodyHead />
             <Outlet />
         </Container>

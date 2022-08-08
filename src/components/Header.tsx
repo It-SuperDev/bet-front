@@ -49,7 +49,7 @@ const Header = () => {
 
   return (
     <AppBar position="static" sx={{ backgroundImage: 'unset' }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ px: '0 !important' }}>
         <Toolbar disableGutters>
           {
             process.env.REACT_APP_LOGO ? (

@@ -174,7 +174,7 @@ export const SportHead = (props) => {
             )
           } else {
             return (<HStack>
-              {SportsList[sportId].icon}
+              {SportsList[sportId].icon(6)}
               <Typography
                 variant='h5'
                 noWrap

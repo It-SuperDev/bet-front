@@ -1,5 +1,6 @@
 import { BoxBorder } from 'components/Base';
 import Grid from '@mui/material/Grid';
+import BetSlip from 'components/Betslip';
 import { SportHead, SportLeague, LiveList } from '../../components/Part';
 
 const Match = () => {
@@ -11,6 +12,9 @@ const Match = () => {
                     <SportHead {...{ sportId: 1, favourite: true }} />
                     <SportLeague />
                 </BoxBorder>
+            </Grid>
+            <Grid item sm={3}>
+                <BetSlip />
             </Grid>
         </Grid>
     )

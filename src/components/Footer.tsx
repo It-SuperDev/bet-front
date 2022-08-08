@@ -9,7 +9,7 @@ import CopyrightIcon from '@mui/icons-material/Copyright';
 const Footer = () => {
     return (
         <Box sx={{ bgcolor: (theme) => theme.palette.background.paper, py: 1 }}>
-            <Container maxWidth="lg" >
+            <Container maxWidth="lg" sx={{ px: '0 !important' }} >
                 <Toolbar disableGutters>
                     {
                         process.env.REACT_APP_LOGO ? (
@@ -31,7 +31,7 @@ const Footer = () => {
                                     alt='logo'
                                     sx={{ maxHeight: (theme) => theme.spacing(7) }}
                                 />
-                                <Typography component="p" sx={{color: 'white'}}>
+                                <Typography component="p" sx={{ color: 'white' }}>
                                     Bet-Front
                                 </Typography>
                             </Typography>

@@ -8,32 +8,32 @@ export const SportsList = {
     //    main  
     1: {
         name: 'Soccer',
-        icon: <SportsSoccerIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
+        icon: (size: number = 6) => <SportsSoccerIcon sx={{ fontSize: (theme) => theme.spacing(size) }} color='error' />
     },
     13: {
         name: 'Tennis',
-        icon: <SportsTennisIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
+        icon: (size: number = 6) => <SportsTennisIcon sx={{ fontSize: (theme) => theme.spacing(size) }} color='error' />
     },
     17: {
         name: 'Ice Hockey',
-        icon: <SportsHockeyIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
+        icon: (size: number = 6) => <SportsHockeyIcon sx={{ fontSize: (theme) => theme.spacing(size) }} color='error' />
     },
     18: {
         name: 'Basketball',
-        icon: <SportsBasketballIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
+        icon: (size: number = 6) => <SportsBasketballIcon sx={{ fontSize: (theme) => theme.spacing(size) }} color='error' />
     },
     92: {
         name: 'Table Tennis',
-        icon: <SportsTennisIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
+        icon: (size: number = 6) => <SportsTennisIcon sx={{ fontSize: (theme) => theme.spacing(size) }} color='error' />
     },
     91: {
         name: 'Volleyball',
-        icon: <SportsVolleyballIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
+        icon: (size: number = 6) => <SportsVolleyballIcon sx={{ fontSize: (theme) => theme.spacing(size) }} color='error' />
     },
     //  others
     2: {
         name: 'Horse Racing',
-        icon: <SportsVolleyballIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
+        icon: (size: number = 6) => <SportsVolleyballIcon sx={{ fontSize: (theme) => theme.spacing(size) }} color='error' />
     },
     3: 'Cricket',
     4: 'Greyhounds',
