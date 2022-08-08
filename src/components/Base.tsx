@@ -55,7 +55,7 @@ export const VStack = styled(Stack)(({ theme }) => ({
 export const LayoutWrap = styled(Box)(({ theme }) => ({
   minHeight: 'calc(100vh - 68px - 48px)',
   padding: theme.spacing(4, 0),
-  backgroundImage: `url(${require('../assets/img/background/1.png')})`,
+  backgroundImage: `url(${require('../assets/img/background/1.jpg')})`,
   backgroundAttachment: 'fixed',
   backgroundPosition: 'right',
   backgroundRepeat: 'no-repeat',

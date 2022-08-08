@@ -20,15 +20,14 @@ code {
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 6px #c0c0c0;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #c0c0c0;
-  border-radius: 1px;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #b1b1b1;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 /* Swiper slider */

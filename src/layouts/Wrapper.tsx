@@ -1,12 +1,12 @@
 import Container from '@mui/material/Container';
 import { LayoutWrap } from '../components/Base';
-import { BodyHead } from '../components/Part';
+import BodyHeader from '../components/BodyHeader';
 import { Outlet } from 'react-router-dom';
 
 const Wrapper = () => (
     <LayoutWrap>
         <Container maxWidth='lg' sx={{ px: '0 !important' }}>
-            <BodyHead />
+            <BodyHeader />
             <Outlet />
         </Container>
     </LayoutWrap>
