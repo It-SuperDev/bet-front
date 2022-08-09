@@ -410,23 +410,36 @@ export const SportEventMarket = (props: any) => {
 
 export const LiveList = () => {
   const list: string[] = ['soccer', 'volleyball', 'bascketball', 'tennis', 'table tennis', 'ice hockey']
-  const [active, setActive] = useState(-1);
+  const [active, setActive] = useState(0);
   return (
     <HStack sx={{ justifyContent: 'flex-start' }}>
       {
         list.map((item: string, idx: number) => (
-          <BoxBorder key={idx} sx={{ bgcolor: (theme) => theme.palette.background.paper, borderBottomWidth: 0, mr: 1 }}>
+          <BoxBorder key={idx}
+            sx={{
+              bgcolor: (theme) => theme.palette.background.paper,
+              borderBottom: active === idx ? '0px' : 'none',
+              top: active === idx ? '3px' : 0,
+              transition: 'top 0.3s',
+              position: 'relative',
+              mr: 1
+            }}
+          >
             <Button
               onClick={() => setActive(idx)}
               sx={{
-                width: '100%',
                 px: 2,
+                width: '100%',
+                borderRadius: 0,
                 color: active === idx ? (theme) => theme.palette.success.main : '#ffffff',
+                borderColor: active === idx ? (theme) => theme.palette.background.paper : (theme) => theme.palette.secondary.light,
                 [`&:hover`]: {
                   color: (theme) => theme.palette.success.main,
                 }
               }}
-            >{item}</Button>
+            >
+              {item}
+            </Button>
           </BoxBorder>
         ))
       }
