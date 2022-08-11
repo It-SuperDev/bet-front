@@ -4,14 +4,18 @@ import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableRow from '@mui/material/TableRow';
 import Collapse from '@mui/material/Collapse';
+import Checkbox from '@mui/material/Checkbox';
+import FormGroup from '@mui/material/FormGroup';
 import TableBody from '@mui/material/TableBody';
 import TableHead from '@mui/material/TableHead';
 import TableCell from '@mui/material/TableCell';
 import IconButton from '@mui/material/IconButton';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import TableContainer from '@mui/material/TableContainer';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
+import SearchIcon from '@mui/icons-material/Search';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -128,13 +132,6 @@ const Users = () => {
         setRange(value);
     };
 
-    const changeCondtion = (event: SelectChangeEvent<typeof condition>) => {
-        const {
-            target: { value },
-        } = event;
-        setCondition(value);
-    };
-
     useEffect(() => {
         setRange(ranges[0]);
         setCondition(conditions[0]);
@@ -146,98 +143,91 @@ const Users = () => {
                 sx={{
                     py: 1,
                     px: 2,
-                    justifyContent: 'flex-start',
+                    justifyContent: 'space-between',
                     bgcolor: (theme) => theme.palette.secondary.dark
                 }}
             >
-                <Select
-                    value={range}
-                    onChange={changeRange}
-                    input={<OutInput />}
-                    sx={{ mr: 1 }}
-                    MenuProps={{
-                        anchorOrigin: {
-                            vertical: 'bottom',
-                            horizontal: 'right',
-                        },
-                        transformOrigin: {
-                            vertical: 'top',
-                            horizontal: 'right',
-                        },
-                        PaperProps: {
-                            sx: {
-                                borderRadius: 0,
-                                width: (theme) => theme.spacing(20),
+                <HStack>
+                    <FormGroup>
+                        <FormControlLabel control={<Checkbox defaultChecked />} label="Online Users" />
+                    </FormGroup>
+                    <Select
+                        value={range}
+                        onChange={changeRange}
+                        input={<OutInput />}
+                        sx={{ mr: 1 }}
+                        MenuProps={{
+                            anchorOrigin: {
+                                vertical: 'bottom',
+                                horizontal: 'right',
                             },
-                        },
-                    }}
-                >
-                    {ranges.map((item: string, idx: number) => (
-                        <MenuItem
-                            key={idx}
-                            value={item}
-                        >
-                            {item}
-                        </MenuItem>
-                    ))}
-                </Select>
-                <Select
-                    value={condition}
-                    onChange={changeCondtion}
-                    input={<OutInput />}
-                    MenuProps={{
-                        anchorOrigin: {
-                            vertical: 'bottom',
-                            horizontal: 'right',
-                        },
-                        transformOrigin: {
-                            vertical: 'top',
-                            horizontal: 'right',
-                        },
-                        PaperProps: {
-                            sx: {
-                                borderRadius: 0,
-                                width: (theme) => theme.spacing(20),
+                            transformOrigin: {
+                                vertical: 'top',
+                                horizontal: 'right',
                             },
-                        },
-                    }}
-                >
-                    {conditions.map((item: string, idx: number) => (
-                        <MenuItem
-                            key={idx}
-                            value={item}
-                        >
-                            {item}
-                        </MenuItem>
-                    ))}
-                </Select>
+                            PaperProps: {
+                                sx: {
+                                    borderRadius: 0,
+                                    width: (theme) => theme.spacing(20),
+                                },
+                            },
+                        }}
+                    >
+                        {ranges.map((item: string, idx: number) => (
+                            <MenuItem
+                                key={idx}
+                                value={item}
+                            >
+                                {item}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </HStack>
+
+                <HStack>
+                    <OutInput sx={{ height: (theme) => theme.spacing(4.3) }} placeholder="User Name" />
+                    <IconButton
+                        sx={{
+                            borderRadius: 0,
+                            height: (theme) => theme.spacing(4.3),
+                            width: (theme) => theme.spacing(4.3),
+                            bgcolor: (theme) => theme.palette.secondary.main,
+                            [`&:hover`]: {
+                                bgcolor: (theme) => theme.palette.secondary.light
+                            }
+                        }}>
+                        <SearchIcon />
+                    </IconButton>
+                </HStack>
             </HStack>
 
             <TableContainer component={Paper} sx={{ borderRadius: 0 }}>
                 <Table aria-label="collapsible table">
                     <TableHead>
                         <TableRow sx={{ bgcolor: (theme) => theme.palette.background.paper }}>
-                            <TblCell align="center" sx={{ width: '10%' }}>Bet Id</TblCell>
-                            <TblCell align="center" sx={{ width: '9%' }}>Bet Date</TblCell>
-                            <TblCell align="center" sx={{ width: '8%' }}>Sport</TblCell>
-                            <TblCell align="center" sx={{ minWidth: '10%' }}>Description</TblCell>
                             <TblCell sx={{ width: (theme) => theme.spacing(1) }}>
                                 <IconButton size='small'>
                                     <InfoOutlinedIcon />
                                 </IconButton>
                             </TblCell>
-                            <TblCell align="center" sx={{ width: '5%' }}>Odds</TblCell>
-                            <TblCell align="center" sx={{ width: '8%' }}>Stack</TblCell>
-                            <TblCell align="center" sx={{ width: '8%' }}>Win Result</TblCell>
-                            <TblCell align="center" sx={{ width: '8%' }}>Result</TblCell>
-                            <TblCell align="center" sx={{ width: '8%' }}>Status</TblCell>
+                            <TblCell align="center" sx={{ width: '10%' }}>User Id</TblCell>
+                            <TblCell align="center" sx={{ width: '10%' }}>Name</TblCell>
+                            <TblCell align="center" sx={{ width: '10%' }}>Status</TblCell>
+                            <TblCell align="center" sx={{ width: '10%' }}>Credit</TblCell>
+                            <TblCell align="center" sx={{ width: '10%' }}>Open Bet</TblCell>
+                            <TblCell align="center" sx={{ width: '10%' }}>Close Bet</TblCell>
+                            <TblCell align="center" sx={{ width: '10%' }}>Total</TblCell>
+                            <TblCell align="center" sx={{ width: '10%' }}>Total Net</TblCell>
+                            <TblCell align="center" sx={{ width: '10%' }}>Agent Commission</TblCell>
+                            <TblCell align="center" sx={{ width: '10%' }}>Platform Commission</TblCell>
+                            <TblCell align="center" sx={{ width: '10%' }}>Enter</TblCell>
                         </TableRow>
                     </TableHead>
-                    <TableBody>
+                    {/* <TableBody>
                         {rows.map((row, idx) => (
                             <Row key={idx} row={row} />
                         ))}
-                    </TableBody>
+                    </TableBody> */}
                 </Table>
             </TableContainer>
         </>

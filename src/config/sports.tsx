@@ -4,6 +4,12 @@ import SportsHockeyIcon from '@mui/icons-material/SportsHockey';
 import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 import SportsVolleyballIcon from '@mui/icons-material/SportsVolleyball';
 
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+
 export const SportsList = {
     //    main  
     1: {
@@ -56,3 +62,31 @@ export const SportsList = {
     110: 'Water Polo',
     151: 'E-sports',
 };
+
+export const ManageList = [
+    {
+        name: 'Users',
+        url: 'users',
+        icon: <PeopleOutlineIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
+    },
+    {
+        name: 'Bet List',
+        url: 'bet-list',
+        icon: <ListAltIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
+    },
+    {
+        name: 'Transaction',
+        url: 'transaction',
+        icon: <ReceiptLongIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
+    },
+    {
+        name: 'Create Account',
+        url: 'create-account',
+        icon: <PersonAddAltIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
+    },
+    {
+        name: 'Setting',
+        url: 'setting',
+        icon: <SettingsOutlinedIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
+    }
+]

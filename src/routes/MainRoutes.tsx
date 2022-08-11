@@ -30,7 +30,7 @@ export const SportsRoutes = {
             element: <Match />
         },
         {
-            path: 'bet_list',
+            path: 'bet-list',
             element: <BetList />
         },
         {
@@ -57,6 +57,22 @@ export const AdminRoutes = {
     children: [
         {
             path: 'users',
+            element: <Users />
+        },
+        {
+            path: 'bet-list',
+            element: <Users />
+        },
+        {
+            path: 'transaction',
+            element: <Users />
+        },
+        {
+            path: 'create-account',
+            element: <Users />
+        },
+        {
+            path: 'setting',
             element: <Users />
         }
     ]

@@ -33,7 +33,7 @@ const conditions = [
     'Lost',
 ];
 
-const Home = () => {
+const BetList = () => {
     const createData = (
         id: string,
         date: string,
@@ -245,4 +245,4 @@ const Home = () => {
         </BoxBorder>);
 };
 
-export default Home;
+export default BetList;
