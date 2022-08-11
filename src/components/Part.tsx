@@ -18,7 +18,7 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import { BoxBorder, HStack, VStack } from './Base';
 import { SportsList } from '../config/sports';
 
-export const SportHead = (props) => {
+export const SportHead = (props: any) => {
   const { sportId, dateList, today, qutright, favourite, live, league }: any = props;
 
   return (
@@ -447,7 +447,7 @@ export const LiveList = () => {
   )
 }
 
-export const ManageHead = (props) => {
+export const ManageHead = (props: any) => {
   const { title }: any = props;
   return (
     <Box sx={{ bgcolor: (theme) => theme.palette.background.paper }}>

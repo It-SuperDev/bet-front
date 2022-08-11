@@ -1,9 +1,10 @@
 import { styled } from '@mui/material/styles';
-import Badge from '@mui/material/Badge';
+
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import Badge from '@mui/material/Badge';
+import TableCell from '@mui/material/TableCell';
 import OutlinedInput from '@mui/material/OutlinedInput';
-
 
 export const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -55,7 +56,7 @@ export const VStack = styled(Stack)(({ theme }) => ({
 export const LayoutWrap = styled(Box)(({ theme }) => ({
   minHeight: 'calc(100vh - 68px - 48px)',
   padding: theme.spacing(4, 0),
-  backgroundImage: `url(${require('../assets/img/background/1.jpg')})`,
+  backgroundImage: `url(${require('../assets/img/background/back.jpg')})`,
   backgroundAttachment: 'fixed',
   backgroundPosition: 'right',
   backgroundRepeat: 'no-repeat',
@@ -64,9 +65,10 @@ export const LayoutWrap = styled(Box)(({ theme }) => ({
 
 export const FullLayoutWrap = styled(Box)(({ theme }) => ({
   minHeight: '100vh',
-  backgroundImage: `url(${require('../assets/img/background/5.jpg')})`,
+  backgroundImage: `url(${require('../assets/img/background/login.png')})`,
   backgroundRepeat: 'no-repeat',
-  backgroundSize: 'cover'
+  backgroundSize: 'cover',
+  opacity: 0.6
 }))
 
 export const OutInput = styled(OutlinedInput)(({ theme }) => ({
@@ -83,3 +85,10 @@ export const OutInput = styled(OutlinedInput)(({ theme }) => ({
     borderStyle: 'solid',
   }
 }));
+
+export const TblCell = styled(TableCell)(({ theme }) => ({
+  padding: theme.spacing(0.5),
+  overflow: 'hidden',
+  // height: theme.spacing(0.5),
+  borderRight: '1px solid rgba(81, 81, 81, 1)'
+}))

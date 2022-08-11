@@ -51,7 +51,7 @@ const LivePoint = () => {
         width: '100%',
         backgroundRepeat: 'no-repeat',
         backgroundSize: '100% 100%',
-        backgroundImage: `url(${require('../assets/img/background/scoreboard.jpg')})`
+        backgroundImage: `url(${require('../assets/img/background/scoreboard.png')})`
       }}>
         <BoxBorder sx={{ width: '75%', bgcolor: '#21242ac9', py: 1 }}>
           <HStack>
@@ -129,7 +129,7 @@ const PageList = () => {
 const BodyHeader = () => {
   const [event, setEvent] = useState<Boolean>(false);
   useEffect(() => {
-    setEvent(false);
+    setEvent(true);
   }, []);
   return (
     <Grid container justifyContent='space-between'>
