@@ -11,6 +11,7 @@ import Paper from '@mui/material/Paper';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
+import SearchIcon from '@mui/icons-material/Search';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -141,78 +142,95 @@ const BetList = () => {
     }, []);
 
     return (
-        <BoxBorder sx={{ mt: 2 }}>
-            <ManageHead title={'Bet List'} />
-
+        <>
             <HStack
                 sx={{
                     py: 1,
                     px: 2,
-                    justifyContent: 'flex-start',
+                    justifyContent: 'space-between',
                     bgcolor: (theme) => theme.palette.secondary.dark
                 }}
             >
-                <Select
-                    value={range}
-                    onChange={changeRange}
-                    input={<OutInput />}
-                    sx={{ mr: 1 }}
-                    MenuProps={{
-                        anchorOrigin: {
-                            vertical: 'bottom',
-                            horizontal: 'right',
-                        },
-                        transformOrigin: {
-                            vertical: 'top',
-                            horizontal: 'right',
-                        },
-                        PaperProps: {
-                            sx: {
-                                borderRadius: 0,
-                                width: (theme) => theme.spacing(20),
+                <HStack>
+                    <Select
+                        value={range}
+                        onChange={changeRange}
+                        input={<OutInput />}
+                        sx={{ mr: 1 }}
+                        MenuProps={{
+                            anchorOrigin: {
+                                vertical: 'bottom',
+                                horizontal: 'right',
                             },
-                        },
-                    }}
-                >
-                    {ranges.map((item: string, idx: number) => (
-                        <MenuItem
-                            key={idx}
-                            value={item}
-                        >
-                            {item}
-                        </MenuItem>
-                    ))}
-                </Select>
-                <Select
-                    value={condition}
-                    onChange={changeCondtion}
-                    input={<OutInput />}
-                    MenuProps={{
-                        anchorOrigin: {
-                            vertical: 'bottom',
-                            horizontal: 'right',
-                        },
-                        transformOrigin: {
-                            vertical: 'top',
-                            horizontal: 'right',
-                        },
-                        PaperProps: {
-                            sx: {
-                                borderRadius: 0,
-                                width: (theme) => theme.spacing(20),
+                            transformOrigin: {
+                                vertical: 'top',
+                                horizontal: 'right',
                             },
-                        },
-                    }}
-                >
-                    {conditions.map((item: string, idx: number) => (
-                        <MenuItem
-                            key={idx}
-                            value={item}
-                        >
-                            {item}
-                        </MenuItem>
-                    ))}
-                </Select>
+                            PaperProps: {
+                                sx: {
+                                    borderRadius: 0,
+                                    width: (theme) => theme.spacing(20),
+                                },
+                            },
+                        }}
+                    >
+                        {ranges.map((item: string, idx: number) => (
+                            <MenuItem
+                                key={idx}
+                                value={item}
+                            >
+                                {item}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                    <Select
+                        value={condition}
+                        onChange={changeCondtion}
+                        input={<OutInput />}
+                        MenuProps={{
+                            anchorOrigin: {
+                                vertical: 'bottom',
+                                horizontal: 'right',
+                            },
+                            transformOrigin: {
+                                vertical: 'top',
+                                horizontal: 'right',
+                            },
+                            PaperProps: {
+                                sx: {
+                                    borderRadius: 0,
+                                    width: (theme) => theme.spacing(20),
+                                },
+                            },
+                        }}
+                    >
+                        {conditions.map((item: string, idx: number) => (
+                            <MenuItem
+                                key={idx}
+                                value={item}
+                            >
+                                {item}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </HStack>
+                <HStack>
+                    <OutInput sx={{ height: (theme) => theme.spacing(4.3), mr: 1 }} placeholder="Bet ID" />
+                    <OutInput sx={{ height: (theme) => theme.spacing(4.3), mr: 1 }} placeholder="Money Limit" />
+                    <OutInput sx={{ height: (theme) => theme.spacing(4.3), mr: 1 }} placeholder="User Name" />
+                    <IconButton
+                        sx={{
+                            borderRadius: 0,
+                            height: (theme) => theme.spacing(4.3),
+                            width: (theme) => theme.spacing(4.3),
+                            bgcolor: (theme) => theme.palette.secondary.main,
+                            [`&:hover`]: {
+                                bgcolor: (theme) => theme.palette.secondary.light
+                            }
+                        }}>
+                        <SearchIcon />
+                    </IconButton>
+                </HStack>
             </HStack>
 
             <TableContainer component={Paper} sx={{ borderRadius: 0 }}>
@@ -242,7 +260,8 @@ const BetList = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
-        </BoxBorder>);
+        </>
+    );
 };
 
 export default BetList;

@@ -88,7 +88,7 @@ const LivePoint = () => {
 }
 
 const PageList = () => {
-  const list: { name: string, url: string }[] = [{ name: 'Home', url: 'home' }, { name: 'Live', url: 'live' }, { name: 'Bet List', url: 'bet_list' }];
+  const list: { name: string, url: string }[] = [{ name: 'Home', url: 'home' }, { name: 'Live', url: 'live' }, { name: 'Bet List', url: 'bet-list' }];
   const navigate = useNavigate();
 
   return (

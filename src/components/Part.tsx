@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import Grow from '@mui/material/Grow';
@@ -16,7 +17,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 
 import { BoxBorder, HStack, VStack } from './Base';
-import { SportsList } from '../config/sports';
+import { SportsList, ManageList } from '../config/sports';
 
 export const SportHead = (props: any) => {
   const { sportId, dateList, today, qutright, favourite, live, league }: any = props;
@@ -448,12 +449,23 @@ export const LiveList = () => {
 }
 
 export const ManageHead = (props: any) => {
-  const { title }: any = props;
+  const { title, idx }: any = props;
+
   return (
     <Box sx={{ bgcolor: (theme) => theme.palette.background.paper }}>
       <Stack direction='row' alignItems='center' justifyContent='space-between' p={2} >
         <HStack>
-          <ListAltIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
+          {
+            (() => {
+              if (idx !== undefined) {
+                return ManageList[idx].icon
+              } else {
+                return (
+                  <ListAltIcon sx={{ fontSize: (theme) => theme.spacing(6) }} color='error' />
+                )
+              }
+            })()
+          }
           <Typography
             variant='h5'
             noWrap
@@ -468,25 +480,46 @@ export const ManageHead = (props: any) => {
   )
 }
 
-export const AdminManageList = () => {
-  const list: string[] = ['Users', 'Bet List', 'Transaction', 'Create User', 'Setting']
+export const AdminManageList = (props: any) => {
+  const { setTitle }: any = props;
+  const navigate = useNavigate();
+  const location = useLocation();
   const [active, setActive] = useState(0);
+
+  const clickHandl = (item: { name: string, url: string }, idx: number) => {
+    navigate(item.url);
+    setActive(idx);
+    setTitle({ name: item.name, idx });
+  }
+
+  useEffect(() => {
+    const path = location.pathname.split('/');
+    const idx = ManageList.findIndex(a => a.url === path[path.length - 1])
+    if (idx > -1) {
+      setActive(idx);
+      setTitle({ name: ManageList[idx].name, idx });
+    } else {
+      setActive(0);
+      setTitle({ name: 'Users', idx: 0 });
+    }
+  }, [setTitle, location]);
+
   return (
     <HStack sx={{ justifyContent: 'flex-start' }}>
       {
-        list.map((item: string, idx: number) => (
+        ManageList.map((item: { name: string, url: string }, idx: number) => (
           <BoxBorder key={idx}
             sx={{
-              bgcolor: (theme) => theme.palette.background.paper,
-              borderBottom: active === idx ? '0px' : 'none',
-              top: active === idx ? '3px' : 0,
-              transition: 'top 0.3s',
+              mr: 1,
               position: 'relative',
-              mr: 1
+              transition: 'top 0.3s',
+              top: active === idx ? '3px' : 0,
+              borderBottom: active === idx ? '0px' : 'none',
+              bgcolor: (theme) => theme.palette.background.paper,
             }}
           >
             <Button
-              onClick={() => setActive(idx)}
+              onClick={() => clickHandl(item, idx)}
               sx={{
                 px: 2,
                 width: '100%',
@@ -498,7 +531,7 @@ export const AdminManageList = () => {
                 }
               }}
             >
-              {item}
+              {item.name}
             </Button>
           </BoxBorder>
         ))
