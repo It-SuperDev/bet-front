@@ -15,7 +15,7 @@ const AdminLayout = () => {
         <Stack>
             <Header />
             <LayoutWrap>
-                <Container maxWidth='xl' sx={{ px: '0 !important' }}>
+                <Container maxWidth='lg' sx={{ px: '0 !important' }}>
                     <Stack>
                         <AdminManageList setTitle={setTitle} />
                     </Stack>

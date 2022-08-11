@@ -12,6 +12,10 @@ const BetList = Loadable(lazy(() => import('../pages/player/BetList')));
 const Login = Loadable(lazy(() => import('../pages/auth/Login')));
 
 const Users = Loadable(lazy(() => import('../pages/admin/Users')));
+const ManageBetList = Loadable(lazy(() => import('../pages/admin/BetList')));
+const Transaction = Loadable(lazy(() => import('../pages/admin/Transaction')));
+const CreateAccount = Loadable(lazy(() => import('../pages/admin/CreateAccount')));
+const Setting = Loadable(lazy(() => import('../pages/admin/Setting')));
 
 export const SportsRoutes = {
     path: '/sports',
@@ -61,19 +65,19 @@ export const AdminRoutes = {
         },
         {
             path: 'bet-list',
-            element: <Users />
+            element: <ManageBetList />
         },
         {
             path: 'transaction',
-            element: <Users />
+            element: <Transaction />
         },
         {
             path: 'create-account',
-            element: <Users />
+            element: <CreateAccount />
         },
         {
             path: 'setting',
-            element: <Users />
+            element: <Setting />
         }
     ]
 }
