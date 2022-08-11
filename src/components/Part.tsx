@@ -467,3 +467,42 @@ export const ManageHead = (props: any) => {
     </Box>
   )
 }
+
+export const AdminManageList = () => {
+  const list: string[] = ['Users', 'Bet List', 'Transaction', 'Create User', 'Setting']
+  const [active, setActive] = useState(0);
+  return (
+    <HStack sx={{ justifyContent: 'flex-start' }}>
+      {
+        list.map((item: string, idx: number) => (
+          <BoxBorder key={idx}
+            sx={{
+              bgcolor: (theme) => theme.palette.background.paper,
+              borderBottom: active === idx ? '0px' : 'none',
+              top: active === idx ? '3px' : 0,
+              transition: 'top 0.3s',
+              position: 'relative',
+              mr: 1
+            }}
+          >
+            <Button
+              onClick={() => setActive(idx)}
+              sx={{
+                px: 2,
+                width: '100%',
+                borderRadius: 0,
+                color: active === idx ? (theme) => theme.palette.success.main : '#ffffff',
+                borderColor: active === idx ? (theme) => theme.palette.background.paper : (theme) => theme.palette.secondary.light,
+                [`&:hover`]: {
+                  color: (theme) => theme.palette.success.main,
+                }
+              }}
+            >
+              {item}
+            </Button>
+          </BoxBorder>
+        ))
+      }
+    </HStack >
+  )
+}

@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
-import Collapse from '@mui/material/Collapse';
-import IconButton from '@mui/material/IconButton';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+
 import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
+import TableRow from '@mui/material/TableRow';
+import Collapse from '@mui/material/Collapse';
+import TableBody from '@mui/material/TableBody';
+import TableHead from '@mui/material/TableHead';
+import TableCell from '@mui/material/TableCell';
+import IconButton from '@mui/material/IconButton';
+import TableContainer from '@mui/material/TableContainer';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
@@ -15,8 +16,7 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-import { BoxBorder, HStack, OutInput, TblCell } from 'components/Base';
-import { ManageHead } from 'components/Part';
+import { HStack, OutInput, TblCell } from 'components/Base';
 
 const ranges = [
     'Current week',
@@ -141,9 +141,7 @@ const Users = () => {
     }, []);
 
     return (
-        <BoxBorder sx={{ mt: 2 }}>
-            <ManageHead title={'Bet List'} />
-
+        <>
             <HStack
                 sx={{
                     py: 1,
@@ -242,7 +240,8 @@ const Users = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
-        </BoxBorder>);
+        </>
+    );
 };
 
 export default Users;
